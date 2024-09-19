@@ -27,6 +27,8 @@ while (keepPlaying)
     // For debugging to check cases
     // Console.WriteLine(code);
 
+    Console.WriteLine();
+
     while (numAttempts <= 10)
     {
         if (numAttempts == 10)
