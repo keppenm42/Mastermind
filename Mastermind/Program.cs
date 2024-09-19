@@ -55,19 +55,27 @@ while (keepPlaying)
         {
             string correct = "";
             string misplaced = "";
+            
             for (int l = 0; l < 4; l++)
             {
-                if (code[l].Equals(guess[l]))
-                    correct += "+";
-                else if (code.Contains(guess[l]))
+                int numContained = 0;
+                if (code.Contains(guess[l]))
                 {
+
                     foreach (char c in code)
                     {
-                        if (c == guess[l])
-                            misplaced += "-";
+                        numContained++;
                     }
                 }
 
+                if (code[l].Equals(guess[l]))
+                {
+                    correct += "+";
+                    numContained--;
+                }
+
+                for (int i = 1; i < numContained; i++)
+                    misplaced += "-";            
             }
 
             Console.WriteLine(correct);
