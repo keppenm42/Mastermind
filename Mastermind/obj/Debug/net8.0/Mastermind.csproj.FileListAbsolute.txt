@@ -12,3 +12,4 @@ C:\Users\kael8\source\repos\Mastermind\Mastermind\obj\Debug\net8.0\refint\Master
 C:\Users\kael8\source\repos\Mastermind\Mastermind\obj\Debug\net8.0\Mastermind.pdb
 C:\Users\kael8\source\repos\Mastermind\Mastermind\obj\Debug\net8.0\Mastermind.genruntimeconfig.cache
 C:\Users\kael8\source\repos\Mastermind\Mastermind\obj\Debug\net8.0\ref\Mastermind.dll
+C:\Users\kael8\source\repos\Mastermind\Mastermind\obj\Debug\net8.0\Mastermind.sourcelink.json

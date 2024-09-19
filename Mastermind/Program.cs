@@ -17,19 +17,22 @@ Console.WriteLine("Good Luck!");
 
 while (keepPlaying)
 {
+    // Code Generation
     for (int i = 1; i <= 4; i++)
     {
         Random random = new Random();
         code += (random.Next(minValue, maxValue));
     }
 
-    Console.WriteLine(code);
+    // For debugging to check cases
+    // Console.WriteLine(code);
 
     while (numAttempts <= 10)
     {
         if (numAttempts == 10)
         {
             Console.WriteLine("I am sorry, you have been unable to crack the code.");
+            Console.WriteLine("The code was: " + code);
             break;
         }
 
@@ -55,27 +58,33 @@ while (keepPlaying)
         {
             string correct = "";
             string misplaced = "";
-            
-            for (int l = 0; l < 4; l++)
+            char[] checkedNumbersMisplaced = new char[4];
+            char[] checkedNumbersPerfect = new char[4];
+
+            for (int j = 0; j < 4; j++)
             {
-                int numContained = 0;
-                if (code.Contains(guess[l]))
-                {
-
-                    foreach (char c in code)
-                    {
-                        numContained++;
-                    }
-                }
-
-                if (code[l].Equals(guess[l]))
+                if (code[j] == guess[j])
                 {
                     correct += "+";
-                    numContained--;
+                    checkedNumbersPerfect[j] = code[j];
                 }
+            }
 
-                for (int i = 1; i < numContained; i++)
-                    misplaced += "-";            
+            for(int k = 0; k < 4; k++)
+            { 
+                for (int i = 0; i < 4; i++)
+                 {
+                    if (!checkedNumbersMisplaced.Contains(guess[k]))
+                    {
+                        if (code[i] == guess[k] && guess[i] != code[i] && !(checkedNumbersPerfect[i] > 0))
+                        {
+                            misplaced += "-";
+                        }
+                    }                    
+
+                }
+                checkedNumbersMisplaced[k] = guess[k];
+
             }
 
             Console.WriteLine(correct);
